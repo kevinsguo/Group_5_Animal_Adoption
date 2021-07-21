@@ -65,23 +65,24 @@ For this type of target value, we will use K-Nearest Neighbors, RandomForest and
 
 ## Sample Data
 
-- Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: segment1_clean_data)
+- Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment1_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/Cathy/cathytian/segment1_clean_data.ipynb))
 
 - Cleaned dataset is connected and stored in PostgreSQL database using sqlalchemy.
 
-  [IMAGE]
+  ![](cathytian/resources/connect.png)
 
 ## Provisional Database
 
 - Database includes two tables as shown in below image (intake table and outcome table)
 
-  [IMAGE]
+  ![](cathytian/resources/tables.png)
 
 - The tables are inner joined on animal_id using SQL with following ERD relationships
 
-  [IMAGE]
+  ![](cathytian/resources/join.png)
+  ![](cathytian//segment1_ERD.png)
 
 - The resulting table is transformed back to Pandas DataFrame using sqlalchemy for analysis with machine learning models.
 
-  [IMAGE]
+  ![](cathytian/resources/result.png)
 
