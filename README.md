@@ -65,7 +65,7 @@ For this type of target value, we will use K-Nearest Neighbors, RandomForest and
 
 ## Sample Data
 
-- Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment1_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/Cathy/cathytian/segment1_clean_data.ipynb))
+- Sample data is downloaded from the [data source](https://data.world/rdowns26/austin-animal-shelter) and saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment1_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/Cathy/cathytian/segment1_clean_data.ipynb))
 
 - Cleaned dataset is connected and stored in PostgreSQL database using sqlalchemy.
 
