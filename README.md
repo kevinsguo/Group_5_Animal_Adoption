@@ -45,11 +45,28 @@ The data was sourced from https://data.world which was originally sourced from h
 
 We communicate with each other regularly via Slack, as well as organize Zoom meeting twice a week in order to keep in track with the project status.
 
-# Technology
+## Technology
 
-Data Storage - Postgres Database
+### Data Cleaning and Analysis
 
-Exploratory Analysis - Jupyter Notebook (Python)
+Jupyter Notebook (Python, Pandas & sqlalchemy) will be used to clean the Pet Adoption data and to connect to Postgres. 
+
+### ERD
+
+We used https://www.quickdatabasediagrams.com to create the ERD to show the relationship of the animal_intake and animal_outcome tables going to be used in Postgres.
+
+### Database Storage
+
+Postgres will be used to store the animal_intake and animal_outcome tables that we created from Jupyter Notebook.
+
+### Machine Learning
+
+We will be using K-Nearest Neighbors, RandomForest, and Gradient Boosting.
+
+### Dashboard
+
+We will use Tableau to create an interactive Story to display our results.
+
 
 # Machine Learning Model
 
