@@ -21,9 +21,29 @@ The Austin Animal Shelter is the largest no-kill animal shelter in the United St
 https://data.world/rdowns26/austin-animal-shelter
 
 
-Data Storage - Postgres Database
+## Technology
 
-Exploratory Analysis - Jupyter Notebook (Python)
+### Data Cleaning and Analysis
+
+Jupyter Notebook (Python, Pandas & sqlalchemy) will be used to clean the Pet Adoption data and to connect to Postgres.
+
+### ERD
+
+We used https://www.quickdatabasediagrams.com to create the ERD to show the relationship of the animal_intake and animal_outcome tables going to be used in Postgres.
+
+### Database Storage
+
+Postgres will be used to store the animal_intake and animal_outcome tables that we created from Jupyter Notebook.
+
+### Machine Learning
+
+We will be using K-Nearest Neighbors, RandomForest, and Gradient Boosting.
+
+### Dashboard
+
+We will use Tableau to create an interactive Story to display our results.
+
+
 
 # Machine Learning Model
 
