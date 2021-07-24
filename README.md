@@ -55,7 +55,7 @@ Our target variable is Outcome_Type which is a classification variable that has 
 
 For this type of target value, we will use K-Nearest Neighbors, RandomForest and Gradient Boosting. The metrics of the models will be evaluated using a confusion matrix and a classification report with an emphasis on precision and f-1 score. After the evaluation of the models, we will select the model with the highest performance to further optimize.
 
-# Database
+# Database 
 
 ## Sample Data
 
