@@ -78,4 +78,4 @@ For this type of target value, we will use K-Nearest Neighbors, RandomForest and
 
 - The resulting table is transformed back to Pandas DataFrame using sqlalchemy for analysis with machine learning models. 
 
-  ![](cathytian/resources/result.png) 
+  ![](cathytian/resources/result.png)
