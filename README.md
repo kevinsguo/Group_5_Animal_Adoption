@@ -76,6 +76,6 @@ For this type of target value, we will use K-Nearest Neighbors, RandomForest and
   ![](cathytian/resources/join.png)
   ![](cathytian//segment1_ERD.png)
 
-- The resulting table is transformed back to Pandas DataFrame using sqlalchemy for analysis with machine learning models.
+- The resulting table is transformed back to Pandas DataFrame using sqlalchemy for analysis with machine learning models. 
 
   ![](cathytian/resources/result.png)
