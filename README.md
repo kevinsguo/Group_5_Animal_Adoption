@@ -70,11 +70,21 @@ We will use Tableau to create an interactive Story to display our results.
 
 ## Output label
 
-Our target variable is Outcome_Type which is a classification variable that has many different classes. 
+Our target variable is Outcome_Type which is a classification variable that has many different classes.  During preprocessing this was reduced and combined to the following values:
+- Adoption
+- Died
+- Return to Owner
+- Transfer
+
+## Preprocessing Data
+
+During the preprocessing of the data, bucketing was used on the breed_type and intake_color features to reduce the number of individual values.  Then we used get_dummies to encode the categorical values.  We used LabelEncoder to encode the target variable, outcome_type.
 
 ## Provisional machine learning model
 
-For this type of target value, we will use K-Nearest Neighbors, RandomForest and Gradient Boosting. The metrics of the models will be evaluated using a confusion matrix and a classification report with an emphasis on precision and f-1 score. After the evaluation of the models, we will select the model with the highest performance to further optimize.
+For this type of target value, we used K-Nearest Neighbors, RandomForest and Gradient Boosting to determine the best model. The metrics of the models were evaluated using a confusion matrix and a classification report with an emphasis on precision and f-1 score. After the evaluation of the models, the model that had the highest performance and the fastest runtime was the RandomForestClassification model.
+
+The data was split using the train_test_split function with the test set equaling 25% of the data.  The data was then scaled using the StandardScaler function to normalize the data.
 
 # Database 
 
