@@ -78,13 +78,36 @@ Our target variable is Outcome_Type which is a classification variable that has 
 
 ## Preprocessing Data
 
-During the preprocessing of the data, bucketing was used on the breed_type and intake_color features to reduce the number of individual values.  Then we used get_dummies to encode the categorical values.  We used LabelEncoder to encode the target variable, outcome_type.
+During the preprocessing of the data, 
+- bucketing was used on the breed_type and intake_color features to reduce the number of individual values. 
+- get_dummies was used to encode the categorical values. 
+- LabelEncoder was used to encode the target variable, outcome_type. 
 
-## Provisional machine learning model
+## Feature Selection and Decision Making Process
 
-For this type of target value, we used K-Nearest Neighbors, RandomForest and Gradient Boosting to determine the best model. The metrics of the models were evaluated using a confusion matrix and a classification report with an emphasis on precision and f-1 score. After the evaluation of the models, the model that had the highest performance and the fastest runtime was the RandomForestClassification model.
+We selected our features based on our knowledge of animal adoption trends. For example, the found location of an animal will not affect its outcome, therefore, we dropped found_location column for machine learning analysis.
 
-The data was split using the train_test_split function with the test set equaling 25% of the data.  The data was then scaled using the StandardScaler function to normalize the data.
+## Training and Testing Data
+
+- The data was split using the train_test_split function with the test set equaling 25% of the data. 
+- The data was then scaled using the StandardScaler function to normalize the data.
+- The data was then resampled using combination resampling method SMOTEEN to avoid class imbalance problem.
+
+## Model Choice
+
+For this type of target value, we used K-Nearest Neighbors, RandomForest and Gradient Boosting to determine the best model. The metrics of the models were evaluated using a confusion matrix and a classification report with an emphasis on precision and f-1 score. After the evaluation of the models, we choose RandomForestClassification model since that had the highest performance and the fastest runtime.
+
+### Benefits
+
+The benefits of RandomForestClassification are:
+- It creates more decision tree so that can reduce overfitting problem.
+- It’s able to handle multiple target variables regression problems.
+- It’s able to handle outliers automatically.
+
+### Limitations
+
+- For large dataset, it requires much more computational powers since random forest creates a lot of trees.
+- It also require much more time to train the data.
 
 # Database 
 
