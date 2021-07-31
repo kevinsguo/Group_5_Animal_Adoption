@@ -1,5 +1,8 @@
 # Group_5_Animal_Adoption
 
+The project dashboard is created in Google Slides, and can be viewed through the following link:
+https://docs.google.com/presentation/d/1woJQrk37jf7KGV7xhvZCvFuRdxrqUlmahCp6gnrehiw/edit#slide=id.ge72201d6db_0_364
+
 # Presentation
 
 ## Selected topic
