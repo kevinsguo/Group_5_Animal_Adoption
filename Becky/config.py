@@ -1,1 +1,1 @@
-db_password = '@blueBonnet1'
+db_password = 'animaladoption'
