@@ -12,7 +12,6 @@ The purpose of this analysis is to review data on animals in the Austin Animal C
 - Euthanesia
 - Died
 
-
 ## Reason for selecting this topic
 
 The Austin Animal Shelter is the largest no-kill animal shelter in the United States and houses 18,000 animals each year. The shelter is an open intake facility where all lost or surrendered animals are accepted. As the city of Austin grows the number of animal intakes will increase making the burden on the shelter greater. The ability of the shelter to remain no-kill is dependent on having available room to house all of the animals and makes understanding the outcome of the animals and the success of the adoption program incential.
@@ -37,8 +36,6 @@ The data was sourced from https://data.world which was originally sourced from h
   - color
   - location of where they found
 
-
-
 # GitHub
 
 ## Description of the communication Protocols
@@ -47,25 +44,76 @@ We communicate with each other regularly via Slack, as well as organize Zoom mee
 
 # Technology
 
-Data Storage - Postgres Database
+### Data Cleaning and Analysis
 
-Exploratory Analysis - Jupyter Notebook (Python)
+Jupyter Notebook (Python, Pandas & sqlalchemy) will be used to clean the Pet Adoption data and to connect to Postgres.
+
+### ERD
+
+We used https://www.quickdatabasediagrams.com to create the ERD to show the relationship of the animal_intake and animal_outcome tables going to be used in Postgres.
+
+### Database Storage
+
+Postgres will be used to store the animal_intake and animal_outcome tables that we created from Jupyter Notebook.
+
+### Machine Learning
+
+We will be using K-Nearest Neighbors, RandomForest, and Gradient Boosting.
+
+### Dashboard
+
+We will use Tableau to create an interactive Story to display our results.
+
+
 
 # Machine Learning Model
 
 ## Output label
 
-Our target variable is Outcome_Type which is a classification variable that has many different classes. 
+Our target variable is Outcome_Type which is a classification variable that has many different classes.  During preprocessing this was reduced and combined to the following values:
+- Adoption
+- Died
+- Return to Owner
+- Transfer
 
-## Provisional machine learning model
+## Preprocessing Data
 
-For this type of target value, we will use K-Nearest Neighbors, RandomForest and Gradient Boosting. The metrics of the models will be evaluated using a confusion matrix and a classification report with an emphasis on precision and f-1 score. After the evaluation of the models, we will select the model with the highest performance to further optimize.
+During the preprocessing of the data, 
+- bucketing was used on the breed_type and intake_color features to reduce the number of individual values. 
+- get_dummies was used to encode the categorical values. 
+- LabelEncoder was used to encode the target variable, outcome_type. 
 
-# Database
+## Feature Selection and Decision Making Process
+
+We selected our features based on our knowledge of animal adoption trends. For example, the found location of an animal will not affect its outcome, therefore, we dropped found_location column for machine learning analysis.
+
+## Training and Testing Data
+
+- The data was split using the train_test_split function with the test set equaling 25% of the data. 
+- The data was then scaled using the StandardScaler function to normalize the data.
+- The data was then resampled using combination resampling method SMOTEEN to avoid class imbalance problem.
+
+## Model Choice
+
+For this type of target value, we used K-Nearest Neighbors, RandomForest and Gradient Boosting to determine the best model. The metrics of the models were evaluated using a confusion matrix and a classification report with an emphasis on precision and f-1 score. After the evaluation of the models, we choose RandomForestClassification model since that had the highest performance and the fastest runtime.
+
+### Benefits
+
+The benefits of RandomForestClassification are:
+- It creates more decision tree so that can reduce overfitting problem.
+- It’s able to handle multiple target variables regression problems.
+- It’s able to handle outliers automatically.
+
+### Limitations
+
+- For large dataset, it requires much more computational powers since random forest creates a lot of trees.
+- It also require much more time to train the data.
+
+# Database 
 
 ## Sample Data
 
-- Sample data is downloaded from the [data source](https://data.world/rdowns26/austin-animal-shelter) and saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment1_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/Cathy/cathytian/segment1_clean_data.ipynb))
+- Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment1_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/Cathy/cathytian/segment1_clean_data.ipynb))
 
 - Cleaned dataset is connected and stored in PostgreSQL database using sqlalchemy.
 
@@ -82,7 +130,6 @@ For this type of target value, we will use K-Nearest Neighbors, RandomForest and
   ![](cathytian/resources/join.png)
   ![](cathytian//segment1_ERD.png)
 
-- The resulting table is transformed back to Pandas DataFrame using sqlalchemy for analysis with machine learning models.
+- The resulting table is transformed back to Pandas DataFrame using sqlalchemy for analysis with machine learning models. 
 
   ![](cathytian/resources/result.png)
-

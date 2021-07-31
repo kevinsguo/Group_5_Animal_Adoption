@@ -6,7 +6,10 @@ SELECT*FROM animal_outcome;
 SELECT *
 INTO result
 FROM animal_intake
-JOIN animal_outcome
+LEFT JOIN animal_outcome
 USING(animal_id)
 
 SELECT*FROM result;
+
+select count(*)
+FROM result;
