@@ -116,7 +116,7 @@ The benefits of RandomForestClassification are:
 
 ## Sample Data
 
-- Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment1_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/Cathy/cathytian/segment1_clean_data.ipynb))
+- Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment2_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/main/Segment_2/segment2_clean_data.ipynb))
 
 - Cleaned dataset is connected and stored in PostgreSQL database using sqlalchemy.
 
