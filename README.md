@@ -136,3 +136,18 @@ The benefits of RandomForestClassification are:
 - The resulting table is transformed back to Pandas DataFrame using sqlalchemy for analysis with machine learning models. 
 
   ![](cathytian/resources/result.png)
+  
+  ## Visuals
+  
+  ![Fig1](https://user-images.githubusercontent.com/78935982/127795934-17f0b3bb-af9d-4951-ba03-946b4d3c32bf.png)
+  
+  Animal Type Intake Count
+  
+  ![Fig2](https://user-images.githubusercontent.com/78935982/127795990-ec4ef188-c239-4ab2-979f-49e1336c6326.png)
+
+Percent Animal Type Intake
+
+![Fig3](https://user-images.githubusercontent.com/78935982/127796051-b822148b-8e59-48c7-a96c-1b1c6b58172b.png)
+
+Percent of Outcome Type
+
