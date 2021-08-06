@@ -33,6 +33,8 @@ The data was sourced from https://data.world which was originally sourced from h
 
 - Which month does the shelter have the lowest capacity?
 
+- Number of spay and nueter surgeries that the shelter needs to preform each year.
+
 - A review of other main factors and their correlation to the outcome. Such as:
   - length of stay
   - age
