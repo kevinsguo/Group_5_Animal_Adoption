@@ -114,6 +114,36 @@ The benefits of RandomForestClassification are:
 - For large dataset, it requires much more computational powers since random forest creates a lot of trees.
 - It also require much more time to train the data.
 
+## Additional Training Process
+
+The original target variables are:
+
+- Adoption
+- Died
+- Euthanasia
+- Missing
+- Return to owner
+- Transfer
+
+However, as we can see in the figure below, the precision score for Died and Missing are 0.27 and 0.20, respectively. The reason for this is that the number of data point for Died and Missing categories are relatively low. We tried to adding more data in our model but it still cannot improve its performance much. Therefore, we decided to combine Died and Euthanasia categories to Died, and drop Missing category since only less than 1% of data shows “Missing”.
+
+The final target variables became:
+
+- Adoption
+- Died
+- Return to owner
+- Transfer
+
+
+![](cathytian/resources/train.png)
+
+## Accuracy score
+
+![](cathytian/resources/acc.png)
+
+The final result after training the model is shown above, the overall accuracy score for our model is 75.6%, and the precision score for all of the target variable are above 65%. Since our purpose is to predict whether or not an animal will be adopted based on characteristics upon intake in order to avoid experiencing tumult from having to turn away animals. Therefore, an accuracy score of 76% is good enough for our model. Also, the values of accuracy and precision are more important to us compared to recall.
+
+
 # Database 
 
 ## Sample Data
