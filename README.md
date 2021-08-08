@@ -75,7 +75,6 @@ The following features where cleaned before loading the data into the database:
 - Removed Found_Location that didn't have street address
 - Bucketed breed_intake into Breed Type categories
 - Bucketed color_intake into main color categories
-- 
 
 ### ERD
 
