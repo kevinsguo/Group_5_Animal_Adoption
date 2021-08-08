@@ -55,27 +55,6 @@ We communicate with each other regularly via Slack, as well as organize Zoom mee
 
 Jupyter Notebook (Python, Pandas & sqlalchemy) will be used to clean the Pet Adoption data and to connect to Postgres.
 
-The following features where cleaned before loading the data into the database:
-- Removed unecessary columns
-- Intake Name was processed into a binary "Yes" or "No"
-- Duplicate rows of the Animal ID were removed.
-- Combined Outcome_Type for:
-  - Disposal & Died = Died
-  - Relocate & Transfer = Transfer
-  - Rto-Adopt & Return to Owner = Return to Owner
-- Changed the data type of the DateTime_intake and DateTime_outcome to datetime
-- Created a DateTime_length column from DateTime_intake and DateTime_outcome to produce length of stay at the shelter.
-  - Deleted all the negative invalid DateTime_length.
-- Combine IntakeCondition for:
-  - Aged, Feral & Other = Other
-  - Injured & Sick = Medical
-  - Nursing & Pregent = Maternity
-- Combined Intake_Type for:
-  - Bird, Livestock & Other = Other
-- Removed Found_Location that didn't have street address
-- Bucketed breed_intake into Breed Type categories
-- Bucketed color_intake into main color categories
-
 ### ERD
 
 We used https://www.quickdatabasediagrams.com to create the ERD to show the relationship of the animal_intake and animal_outcome tables going to be used in Postgres.
@@ -88,7 +67,9 @@ Postgres will be used to store the animal_intake and animal_outcome tables that 
 
 We will use Tableau to create an interactive Story to display our results.
 
+### Machine Learning Model
 
+We will be using K-Nearest Neighbors, RandomForest, and Gradient Boosting.
 
 # Machine Learning Model
 
@@ -168,6 +149,27 @@ The final result after training the model is shown above, the overall accuracy s
 ## Sample Data
 
 - Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment2_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/main/Segment_2/segment2_clean_data.ipynb))
+
+- The following features where transformed before loading the data into the database:
+  - Removed unecessary columns
+  - Intake Name was processed into a binary "Yes" or "No"
+  - Duplicate rows of the Animal ID were removed.
+  - Combined Outcome_Type for:
+    - Disposal & Died = Died
+    - Relocate & Transfer = Transfer
+    - Rto-Adopt & Return to Owner = Return to Owner
+  - Changed the data type of the DateTime_intake and DateTime_outcome to datetime
+  - Created a DateTime_length column from DateTime_intake and DateTime_outcome to produce length of stay at the shelter.
+    - Deleted all the negative invalid DateTime_length.
+  - Combine IntakeCondition for:
+    - Aged, Feral & Other = Other
+    - Injured & Sick = Medical
+    - Nursing & Pregent = Maternity
+  - Combined Intake_Type for:
+    - Bird, Livestock & Other = Other
+  - Removed Found_Location that didn't have street address
+  - Bucketed breed_intake into Breed Type categories
+  - Bucketed color_intake into main color categories
 
 - Cleaned dataset is connected and stored in PostgreSQL database using sqlalchemy.
 
