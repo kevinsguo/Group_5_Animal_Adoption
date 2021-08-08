@@ -55,6 +55,28 @@ We communicate with each other regularly via Slack, as well as organize Zoom mee
 
 Jupyter Notebook (Python, Pandas & sqlalchemy) will be used to clean the Pet Adoption data and to connect to Postgres.
 
+The following features where cleaned before loading the data into the database:
+- Removed unecessary columns
+- Intake Name was processed into a binary "Yes" or "No"
+- Duplicate rows of the Animal ID were removed.
+- Combined Outcome_Type for:
+  - Disposal & Died = Died
+  - Relocate & Transfer = Transfer
+  - Rto-Adopt & Return to Owner = Return to Owner
+- Changed the data type of the DateTime_intake and DateTime_outcome to datetime
+- Created a DateTime_length column from DateTime_intake and DateTime_outcome to produce length of stay at the shelter.
+  - Deleted all the negative invalid DateTime_length.
+- Combine IntakeCondition for:
+  - Aged, Feral & Other = Other
+  - Injured & Sick = Medical
+  - Nursing & Pregent = Maternity
+- Combined Intake_Type for:
+  - Bird, Livestock & Other = Other
+- Removed Found_Location that didn't have street address
+- Bucketed breed_intake into Breed Type categories
+- Bucketed color_intake into main color categories
+- 
+
 ### ERD
 
 We used https://www.quickdatabasediagrams.com to create the ERD to show the relationship of the animal_intake and animal_outcome tables going to be used in Postgres.
@@ -62,10 +84,6 @@ We used https://www.quickdatabasediagrams.com to create the ERD to show the rela
 ### Database Storage
 
 Postgres will be used to store the animal_intake and animal_outcome tables that we created from Jupyter Notebook.
-
-### Machine Learning
-
-We will be using K-Nearest Neighbors, RandomForest, and Gradient Boosting.
 
 ### Dashboard
 
