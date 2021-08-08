@@ -85,7 +85,7 @@ Our target variable is Outcome_Type which is a classification variable that has 
 
 ## Preprocessing Data
 
-During the preprocessing of the data, 
+During the preprocessing of the data: 
 - bucketing was used on the breed_type and intake_color features to reduce the number of individual values. 
 - get_dummies was used to encode the categorical values. 
 - LabelEncoder was used to encode the target variable, outcome_type. 
