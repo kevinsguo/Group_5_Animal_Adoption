@@ -35,6 +35,8 @@ The data was sourced from https://data.world which was originally sourced from h
 
 - Number of spay and nueter surgeries that the shelter needs to preform each year.
 
+- The most important features that can effect its outcome.
+
 - A review of other main factors and their correlation to the outcome. Such as:
   - length of stay
   - age
@@ -61,15 +63,13 @@ We used https://www.quickdatabasediagrams.com to create the ERD to show the rela
 
 Postgres will be used to store the animal_intake and animal_outcome tables that we created from Jupyter Notebook.
 
-### Machine Learning
-
-We will be using K-Nearest Neighbors, RandomForest, and Gradient Boosting.
-
 ### Dashboard
 
 We will use Tableau to create an interactive Story to display our results.
 
+### Machine Learning Model
 
+We will be using K-Nearest Neighbors, RandomForest, and Gradient Boosting.
 
 # Machine Learning Model
 
@@ -83,7 +83,7 @@ Our target variable is Outcome_Type which is a classification variable that has 
 
 ## Preprocessing Data
 
-During the preprocessing of the data, 
+During the preprocessing of the data: 
 - bucketing was used on the breed_type and intake_color features to reduce the number of individual values. 
 - get_dummies was used to encode the categorical values. 
 - LabelEncoder was used to encode the target variable, outcome_type. 
@@ -114,11 +114,62 @@ The benefits of RandomForestClassification are:
 - For large dataset, it requires much more computational powers since random forest creates a lot of trees.
 - It also require much more time to train the data.
 
+## Additional Training Process
+
+The original target variables are:
+
+- Adoption
+- Died
+- Euthanasia
+- Missing
+- Return to owner
+- Transfer
+
+However, as we can see in the figure below, the precision score for Died and Missing are 0.27 and 0.20, respectively. The reason for this is that the number of data point for Died and Missing categories are relatively low. We tried to adding more data in our model but it still cannot improve its performance much. Therefore, we decided to combine Died and Euthanasia categories to Died, and drop Missing category since only less than 1% of data shows “Missing”.
+
+The final target variables became:
+
+- Adoption
+- Died
+- Return to owner
+- Transfer
+
+
+![](cathytian/resources/train.png)
+
+## Accuracy score
+
+![](cathytian/resources/acc.png)
+
+The final result after training the model is shown above, the overall accuracy score for our model is 75.6%, and the precision score for all of the target variable are above 65%. Since our purpose is to predict whether or not an animal will be adopted based on characteristics upon intake in order to avoid experiencing tumult from having to turn away animals. Therefore, an accuracy score of 76% is good enough for our model. Also, the values of accuracy and precision are more important to us compared to recall.
+
+
 # Database 
 
 ## Sample Data
 
 - Sample data is saved as CSV file, and performed ETL process using Python Pandas library. (see link: [segment2_clean_data](https://github.com/kevinsguo/Group_5_Animal_Adoption/blob/main/Segment_2/segment2_clean_data.ipynb))
+
+- The following features where transformed before loading the data into the database:
+  - Removed unecessary columns
+  - Intake Name was processed into a binary "Yes" or "No"
+  - Duplicate rows of the Animal ID were removed.
+  - Combined Outcome_Type for:
+    - Disposal & Died = Died
+    - Relocate & Transfer = Transfer
+    - Rto-Adopt & Return to Owner = Return to Owner
+  - Changed the data type of the DateTime_intake and DateTime_outcome to datetime
+  - Created a DateTime_length column from DateTime_intake and DateTime_outcome to produce length of stay at the shelter.
+    - Deleted all the negative invalid DateTime_length.
+  - Combine IntakeCondition for:
+    - Aged, Feral & Other = Other
+    - Injured & Sick = Medical
+    - Nursing & Pregent = Maternity
+  - Combined Intake_Type for:
+    - Bird, Livestock & Other = Other
+  - Removed Found_Location that didn't have street address
+  - Bucketed breed_intake into Breed Type categories
+  - Bucketed color_intake into main color categories
 
 - Cleaned dataset is connected and stored in PostgreSQL database using sqlalchemy.
 
@@ -140,6 +191,10 @@ The benefits of RandomForestClassification are:
   ![](cathytian/resources/result.png)
   
   ## Visuals
+  
+  ### [Click here](https://public.tableau.com/app/profile/rebecca.weirich/viz/Animal_Adoption/Story1?publish=yes) for dashboard in Tableau
+  
+  ### Images from the initial analysis
   
   ![Fig1](https://user-images.githubusercontent.com/78935982/127795934-17f0b3bb-af9d-4951-ba03-946b4d3c32bf.png)
   
