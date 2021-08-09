@@ -45,10 +45,6 @@ The data was sourced from https://data.world which was originally sourced from h
 
 # GitHub
 
-## Description of the communication Protocols
-
-We communicate with each other regularly via Slack, as well as organize Zoom meeting twice a week in order to keep in track with the project status.
-
 # Technology
 
 ### Data Cleaning and Analysis
