@@ -192,7 +192,7 @@ The final result after training the model is shown above, the overall accuracy s
   
   ## Visuals
   
-  ### [Click here](https://public.tableau.com/app/profile/cathy.tian/viz/Animal_Adoption_16280428509340/Story1?publish=yes) for dashboard in Tableau
+  ### [Click here](https://public.tableau.com/app/profile/rebecca.weirich/viz/Animal_Adoption/Story1?publish=yes) for dashboard in Tableau
   
   ### Images from the initial analysis
   
