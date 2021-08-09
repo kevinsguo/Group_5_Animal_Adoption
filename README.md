@@ -194,6 +194,8 @@ The final result after training the model is shown above, the overall accuracy s
   
   ### [Click here](https://public.tableau.com/app/profile/cathy.tian/viz/Animal_Adoption_16280428509340/Story1?publish=yes) for dashboard in Tableau
   
+  ### Images from the initial analysis
+  
   ![Fig1](https://user-images.githubusercontent.com/78935982/127795934-17f0b3bb-af9d-4951-ba03-946b4d3c32bf.png)
   
   Animal Type Intake Count
